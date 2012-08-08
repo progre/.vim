@@ -1,0 +1,6 @@
+/bundle/*
+!/bundle/neobundle.vim.git/
+/backup/*
+!/backup/dummy
+/swapfile/*
+!/swapfile/dummy
