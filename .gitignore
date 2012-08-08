@@ -4,3 +4,5 @@
 !/backup/dummy
 /swapfile/*
 !/swapfile/dummy
+/work/*
+!/work/dummy

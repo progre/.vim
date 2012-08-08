@@ -1,6 +1,6 @@
 nnoremap <Space>s. :<C-u>source $MYVIMRC<CR>
 nnoremap <Space>global. :<C-u>edit ~/.vim/global.vim<CR>
-nnoremap <Space>neobundle. :<C-u>edit ~/.vim/neobundle.vim<CR>
+nnoremap <Space>bundle. :<C-u>edit ~/.vim/neobundle.vim<CR>
 
 set backup
 set backupdir=~/.vim/backup
