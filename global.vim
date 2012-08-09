@@ -4,7 +4,6 @@ nnoremap <Space>bundle. :<C-u>edit ~/.vim/neobundle.vim<CR>
 
 set backup
 set backupdir=~/.vim/backup
-
 set swapfile
 set directory=~/.vim/swapfile
 
@@ -13,34 +12,8 @@ set clipboard=unnamed "クリップボードと共有
 set incsearch
 set list "空白文字の表示
 set listchars=eol:$,tab:>\ ,trail:･
-"set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\%F%=[%{GetB()}]\ %l,%c%V%8P
-function! GetB()
-    let c = matchstr(getline('.'), '.', col('.') - 1)
-    let c = iconv(c, &enc, &fenc)
-    return String2Hex(c)
-endfunction
-" help eval-examples
-" The function Nr2Hex() returns the Hex string of a number.
-func! Nr2Hex(nr)
-    let n = a:nr
-    let r = ""
-    while n
-        let r = '0123456789ABCDEF'[n % 16] . r
-        let n = n / 16
-    endwhile
-    return r
-endfunc
-" The function String2Hex() converts each character in a string to a two
-" character Hex string.
-func! String2Hex(str)
-    let out = ''
-    let ix = 0
-    while ix < strlen(a:str)
-        let out = out . Nr2Hex(char2nr(a:str[ix]))
-        let ix = ix + 1
-    endwhile
-    return out
-endfunc
+
+nmap <ESC><ESC> ;nohlsearch<CR><ESC> "Escの2回押しでハイライト消去
 
 " 全角スペースを視覚化する
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
@@ -57,3 +30,16 @@ augroup vimrc-auto-mkdir
         endif
     endfunction
 augroup END
+
+" カーソル行をハイライト
+set cursorline
+" カレントウィンドウにのみ罫線を引く
+augroup cch
+  autocmd! cch
+  autocmd WinLeave * set nocursorline
+  autocmd WinEnter,BufRead * set cursorline
+augroup END
+hi clear CursorLine
+hi CursorLine gui=underline
+highlight CursorLine ctermbg=black guibg=black
+
