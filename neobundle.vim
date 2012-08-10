@@ -17,14 +17,24 @@ filetype plugin on
 filetype indent on
 
 let g:unite_data_directory=expand('~/.vim/work/unite')
-let g:unite_enable_split_vertically=1
-let g:unite_winwidth=20
 
 " neocomplcache
 let g:neocomplcache_enable_at_startup=1
 let g:neocomplcache_enable_smart_case=1
 let g:neocomplcache_enable_ignore_case=1
 
-let g:Powerline_symbols='unicode'
+"let g:Powerline_symbols='unicode'
 
-nnoremap <Space><Space> :<C-u>VimFiler -no-quit -split -winwidth=20<CR>set nonumber
+"set encoding=utf-8
+let g:Powerline_theme = 'skwp'
+let g:Powerline_colorscheme='skwp'
+
+nnoremap <Space><Space> :<C-u>call CreateIDE()<CR><C-w>l
+function! CreateIDE()
+  only
+  25vs
+  Unite -buffer-name=buf -no-quit -no-split buffer
+  sp
+  setlocal nonumber
+  VimFiler -buffer-name=drive -no-quit
+endfunction
