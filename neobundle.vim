@@ -1,3 +1,5 @@
+nnoremap <Space>bundle. :<C-u>edit ~/.vim/neobundle.vim<CR>
+
 set nocompatible
 filetype off
 
@@ -12,22 +14,22 @@ NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'ujihisa/unite-colorscheme'
 
 filetype plugin on
 filetype indent on
 
-let g:unite_data_directory=expand('~/.vim/work/unite')
 
-" neocomplcache
+let g:unite_data_directory=expand('~/.vim/work/unite')
+let g:vimfiler_data_directory=expand('~/.vim/work/vimfiler')
+
 let g:neocomplcache_enable_at_startup=1
 let g:neocomplcache_enable_smart_case=1
 let g:neocomplcache_enable_ignore_case=1
 
-"let g:Powerline_symbols='unicode'
-
-"set encoding=utf-8
-let g:Powerline_theme = 'skwp'
-let g:Powerline_colorscheme='skwp'
+colorscheme darkblue
+colorscheme solarized
 
 nnoremap <Space><Space> :<C-u>call CreateIDE()<CR><C-w>l
 function! CreateIDE()
