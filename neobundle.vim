@@ -31,12 +31,14 @@ let g:neocomplcache_enable_ignore_case=1
 colorscheme darkblue
 colorscheme solarized
 
-nnoremap <Space><Space> :<C-u>call CreateIDE()<CR><C-w>l
+nnoremap <Space><Space> :<C-u>call CreateIDE()<CR>
 function! CreateIDE()
   only
+  5split
+  Unite -buffer-name=buffer -no-quit -no-split buffer
+  wincmd j
   25vs
-  Unite -buffer-name=buf -no-quit -no-split buffer
-  sp
   setlocal nonumber
   VimFiler -buffer-name=drive -no-quit
+  wincmd l
 endfunction

@@ -1,6 +1,7 @@
 ﻿nnoremap <Space>s. :<C-u>source $MYVIMRC<CR>
 nnoremap <Space>global. :<C-u>edit ~/.vim/global.vim<CR>
 
+set encoding=utf-8
 set backup
 set backupdir=~/.vim/backup
 set swapfile
@@ -42,4 +43,6 @@ augroup END
 hi clear CursorLine
 hi CursorLine gui=underline
 highlight CursorLine ctermbg=black guibg=black
+
+nmap <Space>quit. :<C-u>on<CR>:q<CR>
 
