@@ -28,10 +28,16 @@ let g:neocomplcache_enable_at_startup=1
 let g:neocomplcache_enable_smart_case=1
 let g:neocomplcache_enable_ignore_case=1
 
+let g:Powerline_symbols="unicode"
+let g:Powerline_dividers_override = ['◤', '✕☓', '◥', '╲']
+
 colorscheme darkblue
 colorscheme solarized
 
-nnoremap <Space><Space> :<C-u>call CreateIDE()<CR>
+nnoremap <Space>u. :<C-u>Unite source<CR>
+nnoremap <Space>ub. :<C-u>Unite buffer<CR>
+nnoremap <Space>uf. :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+"nnoremap <Space><Space> :<C-u>call CreateIDE()<CR>
 function! CreateIDE()
   only
   5split
